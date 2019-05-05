@@ -1,6 +1,6 @@
 # Apache Kafka Three Ways: CLI Tools
 
-## To Initialize
+## Initialize
 
 ```
 docker-compose up -d
