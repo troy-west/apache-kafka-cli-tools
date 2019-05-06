@@ -184,6 +184,80 @@ another-value
 third-value
 ```
 
+Consuming again returns no messages, as offsets have been set and --from-beginning only applies where no offsets set
+
+```sh
+# ./bin/kafka-console-consumer.sh --bootstrap-server kafka-1:19092 --topic x-topic --group x-consumer
+Processed a total of 0 messages
+```
+
+List the consumer groups
+
+```sh
+./bin/kafka-consumer-groups.sh --bootstrap-server kafka-1:19092 --list
+
+x-consumer
+```
+
+Describe the current state of the 'x-consumer' consumer group
+
+```sh
+./bin/kafka-consumer-groups.sh --bootstrap-server kafka-1:19092 --group x-consumer --describe
+Consumer group 'x-consumer' has no active members.
+
+TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID     HOST            CLIENT-ID
+x-topic         10         0               0               0               -               -               -
+x-topic         11         3               3               0               -               -               -
+x-topic         7          0               0               0               -               -               -
+x-topic         9          0               0               0               -               -               -
+x-topic         8          0               0               0               -               -               -
+x-topic         12         0               0               0               -               -               -
+x-topic         13         0               0               0               -               -               -
+x-topic         2          0               0               0               -               -               -
+x-topic         3          0               0               0               -               -               -
+x-topic         14         0               0               0               -               -               -
+x-topic         1          0               0               0               -               -               -
+x-topic         4          0               0               0               -               -               -
+x-topic         6          0               0               0               -               -               -
+x-topic         5          3               3               0               -               -               -
+x-topic         0          0               0               0               -               -               -
+```
+
+Because we have 'No active members' we can reset the offsets for this group if we like
+
+```sh
+./bin/kafka-consumer-groups.sh --bootstrap-server kafka-1:19092 --group x-consumer --reset-offsets --to-earliest --all-topics --execute
+
+TOPIC                          PARTITION  NEW-OFFSET
+x-topic                        10         0
+x-topic                        11         0
+x-topic                        7          0
+x-topic                        9          0
+x-topic                        8          0
+x-topic                        12         0
+x-topic                        13         0
+x-topic                        2          0
+x-topic                        3          0
+x-topic                        14         0
+x-topic                        1          0
+x-topic                        4          0
+x-topic                        6          0
+x-topic                        5          0
+x-topic                        0          0
+```
+
+Now consuming will cause us to re-consume previous messages again
+
+```sh
+# ./bin/kafka-console-consumer.sh --bootstrap-server kafka-1:19092 --topic x-topic --group x-consumer
+post-repartition-value
+another-post-value
+one-more-value
+some-value
+another-value
+third-value
+```
+
 ## Cleanup
 ```
 docker ps
