@@ -169,6 +169,21 @@ x-topic:13:0
 x-topic:14:0
 ```
 
+Consume those messages, noting:
+
+ * individual partitions may be returned out of order (as below)
+ * within a partition messages are ordered
+ 
+```sh
+# ./bin/kafka-console-consumer.sh --bootstrap-server kafka-1:19092 --topic x-topic --from-beginning --group x-consumer
+post-repartition-value
+another-post-value
+one-more-value
+some-value
+another-value
+third-value
+```
+
 ## Cleanup
 ```
 docker ps
