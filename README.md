@@ -108,7 +108,7 @@ x-topic:7:0
 x-topic:8:0
 x-topic:9:0
 x-topic:10:0
-x-topic:11:3
+x-topic:11:3   <-- all three messages on partition 11
 ```
 
 ## Cleanup
