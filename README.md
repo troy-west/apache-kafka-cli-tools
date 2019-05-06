@@ -169,7 +169,7 @@ x-topic:13:0
 x-topic:14:0
 ```
 
-Consume those messages, noting:
+Consume those messages (ctrl-c to exit the producer when done), noting:
 
  * individual partitions may be returned out of order (as below)
  * within a partition messages are ordered
