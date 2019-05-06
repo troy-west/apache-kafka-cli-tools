@@ -111,6 +111,34 @@ x-topic:10:0
 x-topic:11:3   <-- all three messages on partition 11
 ```
 
+Increase the number of partitions to 15
+
+```sh
+# ./bin/kafka-topics.sh --bootstrap-server kafka-1:19092 --topic x-topic --alter --partitions 15
+```
+
+And confirm the updated partition count
+
+```sh
+# ./bin/kafka-topics.sh --bootstrap-server kafka-1:19092 --describe --topic x-topic
+Topic:x-topic	PartitionCount:15	ReplicationFactor:3	Configs:
+	Topic: x-topic	Partition: 0	Leader: 1	Replicas: 1,2,3	Isr: 1,2,3
+	Topic: x-topic	Partition: 1	Leader: 2	Replicas: 2,3,1	Isr: 2,3,1
+	Topic: x-topic	Partition: 2	Leader: 3	Replicas: 3,1,2	Isr: 3,1,2
+	Topic: x-topic	Partition: 3	Leader: 1	Replicas: 1,3,2	Isr: 1,3,2
+	Topic: x-topic	Partition: 4	Leader: 2	Replicas: 2,1,3	Isr: 2,1,3
+	Topic: x-topic	Partition: 5	Leader: 3	Replicas: 3,2,1	Isr: 3,2,1
+	Topic: x-topic	Partition: 6	Leader: 1	Replicas: 1,2,3	Isr: 1,2,3
+	Topic: x-topic	Partition: 7	Leader: 2	Replicas: 2,3,1	Isr: 2,3,1
+	Topic: x-topic	Partition: 8	Leader: 3	Replicas: 3,1,2	Isr: 3,1,2
+	Topic: x-topic	Partition: 9	Leader: 1	Replicas: 1,3,2	Isr: 1,3,2
+	Topic: x-topic	Partition: 10	Leader: 2	Replicas: 2,1,3	Isr: 2,1,3
+	Topic: x-topic	Partition: 11	Leader: 3	Replicas: 3,2,1	Isr: 3,2,1
+	Topic: x-topic	Partition: 12	Leader: 1	Replicas: 1,3,2	Isr: 1,3,2
+	Topic: x-topic	Partition: 13	Leader: 2	Replicas: 2,1,3	Isr: 2,1,3
+	Topic: x-topic	Partition: 14	Leader: 3	Replicas: 3,2,1	Isr: 3,2,1
+```
+
 Send another three messages with the same key as previous:
 
 ```sh
@@ -141,35 +169,6 @@ x-topic:13:0
 x-topic:14:0
 ```
 
-Increase the number of partitions to 15
-
-```sh
-# ./bin/kafka-topics.sh --bootstrap-server kafka-1:19092 --topic x-topic --alter --partitions 15
-```
-
-And confirm the update
-
-```sh
-# ./bin/kafka-topics.sh --bootstrap-server kafka-1:19092 --describe --topic x-topic
-Topic:x-topic	PartitionCount:15	ReplicationFactor:3	Configs:
-	Topic: x-topic	Partition: 0	Leader: 1	Replicas: 1,2,3	Isr: 1,2,3
-	Topic: x-topic	Partition: 1	Leader: 2	Replicas: 2,3,1	Isr: 2,3,1
-	Topic: x-topic	Partition: 2	Leader: 3	Replicas: 3,1,2	Isr: 3,1,2
-	Topic: x-topic	Partition: 3	Leader: 1	Replicas: 1,3,2	Isr: 1,3,2
-	Topic: x-topic	Partition: 4	Leader: 2	Replicas: 2,1,3	Isr: 2,1,3
-	Topic: x-topic	Partition: 5	Leader: 3	Replicas: 3,2,1	Isr: 3,2,1
-	Topic: x-topic	Partition: 6	Leader: 1	Replicas: 1,2,3	Isr: 1,2,3
-	Topic: x-topic	Partition: 7	Leader: 2	Replicas: 2,3,1	Isr: 2,3,1
-	Topic: x-topic	Partition: 8	Leader: 3	Replicas: 3,1,2	Isr: 3,1,2
-	Topic: x-topic	Partition: 9	Leader: 1	Replicas: 1,3,2	Isr: 1,3,2
-	Topic: x-topic	Partition: 10	Leader: 2	Replicas: 2,1,3	Isr: 2,1,3
-	Topic: x-topic	Partition: 11	Leader: 3	Replicas: 3,2,1	Isr: 3,2,1
-	Topic: x-topic	Partition: 12	Leader: 1	Replicas: 1,3,2	Isr: 1,3,2
-	Topic: x-topic	Partition: 13	Leader: 2	Replicas: 2,1,3	Isr: 2,1,3
-	Topic: x-topic	Partition: 14	Leader: 3	Replicas: 3,2,1	Isr: 3,2,1
-```	
-
-```
 ## Cleanup
 ```
 docker ps
