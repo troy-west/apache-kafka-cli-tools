@@ -63,6 +63,25 @@ Topic:x-topic	PartitionCount:12	ReplicationFactor:3	Configs:
 	Topic: x-topic	Partition: 11	Leader: 3	Replicas: 3,2,1	Isr: 3,2,1
 ```
 
+Show the offsets of each partition in the new topic:
+
+```sh
+# ./bin/kafka-run-class.sh kafka.tools.GetOffsetShell --broker-list kafka-1:19092 --topic x-topic --time -1
+
+x-topic:0:0
+x-topic:1:0
+x-topic:2:0
+x-topic:3:0
+x-topic:4:0
+x-topic:5:0
+x-topic:6:0
+x-topic:7:0
+x-topic:8:0
+x-topic:9:0
+x-topic:10:0
+x-topic:11:0
+```
+
 ## Cleanup
 ```
 docker ps
