@@ -82,6 +82,35 @@ x-topic:10:0
 x-topic:11:0
 ```
 
+Send messages with the same key to the new topic: (ctrl-c to exit the producer when done)
+
+```sh
+# ./bin/kafka-console-producer.sh --broker-list kafka-1:19092 --topic x-topic --property "parse.key=true" --property "key.separator=:"
+
+a-key:some-value
+a-key:another-value
+a-key:third-value
+```
+
+Inspect the offsets again, showing that each message has been sent to the same partition
+
+```sh
+# ./bin/kafka-run-class.sh kafka.tools.GetOffsetShell --broker-list kafka-1:19092 --topic x-topic --time -1
+
+x-topic:0:0
+x-topic:1:0
+x-topic:2:0
+x-topic:3:0
+x-topic:4:0
+x-topic:5:0
+x-topic:6:0
+x-topic:7:0
+x-topic:8:0
+x-topic:9:0
+x-topic:10:0
+x-topic:11:3
+```
+
 ## Cleanup
 ```
 docker ps
