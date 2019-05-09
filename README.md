@@ -2,6 +2,10 @@
 
 Use in unison with the TW AK3W Workshop: https://kafka.troywest.com
 
+We use this repository to learn the ergonimics of running a simple three node Kafka Cluster locally.
+
+We use this cluster with our Number Stations project to decode 1.5M messages using Kafka Streams.
+
 ## Initialize
 
 Start a 3-node Kafka Cluster and enter a shell with all kafka-tools scripts:
