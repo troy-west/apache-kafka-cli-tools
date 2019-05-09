@@ -1,6 +1,6 @@
 # Apache Kafka Three Ways: CLI Tools
 
-Use in unison with TW AK3W Workshop: https://kafka.troywest.com
+Use in unison with the TW AK3W Workshop: https://kafka.troywest.com
 
 ## Initialize
 
