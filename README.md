@@ -1,5 +1,7 @@
 # Apache Kafka Three Ways: CLI Tools
 
+Use in unison with TW AK3W Workshop: https://kafka.troywest.com
+
 ## Initialize
 
 Start a 3-node Kafka Cluster and enter a shell with all kafka-tools scripts:
