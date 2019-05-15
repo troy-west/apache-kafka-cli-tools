@@ -22,7 +22,7 @@ In a new terminal, view the running kafka logs:
 docker-compose logs -f
 ```
 
-## Play 
+## Play
 
 From within the tools shell.
 
@@ -180,7 +180,7 @@ Consume those messages (ctrl-c to exit the producer when done), noting:
 
  * individual partitions may be returned out of order (as below)
  * within a partition messages are ordered
- 
+
 ```sh
 # ./bin/kafka-console-consumer.sh --bootstrap-server kafka-1:19092 --topic x-topic --from-beginning --group x-consumer
 post-repartition-value
@@ -269,4 +269,22 @@ third-value
 ```
 docker ps
 docker-compose rm
+```
+
+# Troubleshooting
+
+## Windows
+
+### Docker
+
+If you are having problems with docker similar to the following error messages, try restarting docker:
+
+```
+driver failed programming external connectivity on endpoint
+```
+
+or,
+
+```
+input/output error
 ```
