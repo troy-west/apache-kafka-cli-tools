@@ -1,14 +1,14 @@
 # Apache Kafka Three Ways: CLI Tools
 
-Use in unison with [TW AK3W Workshop](https://github.com/troy-west/apache-kafka-three-ways).
-
 Provides the facility to start and operate an Apache Kafka cluster locally via Docker and Docker-Compose.
 
-#### In the morning session (theory):
+Use in unison with [TW AK3W Workshop](https://github.com/troy-west/apache-kafka-three-ways).
+
+### In the morning session (theory):
 
 Demonstrates the ergonimics of running a simple three node Kafka Cluster locally, and to reinforce ideas introduced.
 
-#### In the afternoon session (practical):
+### In the afternoon session (practical):
 
 Provides a local Kafka cluster when solving the mystery of the Number Stations.
 
