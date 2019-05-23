@@ -1,12 +1,40 @@
 # Apache Kafka Three Ways: CLI Tools
 
-Use in unison with the TW AK3W Workshop: https://kafka.troywest.com
+Use in unison with [TW AK3W Workshop](https://github.com/troy-west/apache-kafka-three-ways).
 
-We use this repository to learn the ergonimics of running a simple three node Kafka Cluster locally.
+Provides the facility to start and operate an Apache Kafka cluster locally via Docker and Docker-Compose.
 
-We use this cluster with our Number Stations project to decode 1.5M messages using Kafka Streams.
+Used throughout the workshop:
 
-## Initialize
+##### In the morning session (theory):
+
+To demonstrate the ergonimics of running a simple three node Kafka Cluster locally, and to reinforce ideas introduced.
+
+##### In the afternoon session (practical):
+
+To provide a local Kafka cluster when solving the mystery of the Number Stations.
+
+# Troubleshooting
+
+## Windows
+
+### Docker
+
+If you are having problems with docker similar to the following error messages, try restarting docker:
+
+```
+driver failed programming external connectivity on endpoint
+```
+
+or,
+
+```
+input/output error
+```
+
+----
+
+## Initialize a Cluster
 
 Start a 3-node Kafka Cluster and enter a shell with all kafka-tools scripts:
 ```sh
@@ -15,14 +43,18 @@ docker-compose up -d
 docker-compose -f docker-compose.tools.yml run kafka-tools
 ```
 
-## Monitor
+##### Note:
+
+These broker nodes are accessible on localhost:8082, 8083, and 8083.
+
+## Monitor the Logs
 
 In a new terminal, view the running kafka logs:
 ```sh
 docker-compose logs -f
 ```
 
-## Play
+## Use the Shell Scripts
 
 From within the tools shell.
 
@@ -269,22 +301,4 @@ third-value
 ```
 docker ps
 docker-compose rm
-```
-
-# Troubleshooting
-
-## Windows
-
-### Docker
-
-If you are having problems with docker similar to the following error messages, try restarting docker:
-
-```
-driver failed programming external connectivity on endpoint
-```
-
-or,
-
-```
-input/output error
 ```
