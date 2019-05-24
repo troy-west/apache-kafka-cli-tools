@@ -14,25 +14,23 @@ Provides a local Kafka cluster when solving the mystery of the Number Stations.
 
 # Troubleshooting
 
-## Windows
-
-### Docker
+#### Docker
 
 If you are having problems with docker similar to the following error messages, try restarting docker:
 
 ```
 driver failed programming external connectivity on endpoint
-```
-
-or,
-
-```
+-----
 input/output error
 ```
 
 ----
 
-## Initialize a Cluster
+## Initialize and Monitor a Cluster
+
+##### Note:
+
+These broker nodes are accessible on localhost:8082, 8083, and 8083.
 
 Start a 3-node Kafka Cluster and enter a shell with all kafka-tools scripts:
 ```sh
@@ -40,12 +38,6 @@ docker-compose down
 docker-compose up -d
 docker-compose -f docker-compose.tools.yml run kafka-tools
 ```
-
-##### Note:
-
-These broker nodes are accessible on localhost:8082, 8083, and 8083.
-
-## Monitor the Logs
 
 In a new terminal, view the running kafka logs:
 ```sh
