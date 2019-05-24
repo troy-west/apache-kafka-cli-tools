@@ -28,9 +28,7 @@ input/output error
 
 ## Initialize and Monitor a Cluster
 
-##### Note:
-
-These broker nodes are accessible on localhost:8082, 8083, and 8083.
+##### Note: These broker nodes are accessible on localhost:8082, 8083, and 8083.
 
 Start a 3-node Kafka Cluster and enter a shell with all kafka-tools scripts:
 ```sh
