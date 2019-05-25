@@ -290,3 +290,5 @@ third-value
 docker ps
 docker-compose rm
 ```
+
+Copyright © 2019 Troy-West, Pty Ltd. MIT Licensed.
